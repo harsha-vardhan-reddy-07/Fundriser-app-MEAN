@@ -1,0 +1,22 @@
+
+     <div *ngIf="usertype === 'user'" class="navbar">
+        <h3 routerLink="/" >SB Funds</h3>
+        <div class="nav-options">
+          <p routerLink="/" >Home</p>
+          <p routerLink="/my-fundrisers" >My fundrisers</p>
+          <p routerLink="/new-fundriser">New fundriser</p>
+          <p (click)="logout()">logout</p>
+        </div>
+      </div>
+
+      <div *ngIf="usertype === 'admin'" class="navbar">
+        <h3 routerLink="/admin" >SB Funds (admin)</h3>
+        <div class="nav-options">
+          <p routerLink="/admin" >Home</p>
+          <p routerLink="/all-users" >All users</p>
+          <p routerLink="/fundrisers" >Fundrisers</p>
+          <p routerLink="/donations" >Donations</p>
+          <p (click)="logout()" >logout</p> 
+        </div>
+      </div>
+    

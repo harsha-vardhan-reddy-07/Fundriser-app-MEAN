@@ -1,0 +1,31 @@
+<div class="my-fundrisers-page">
+
+    <div class="all-fundrisers">
+
+          <div class="fundriser-card" *ngFor="let fundriser of fundrisers" >
+              <img src={{fundriser.bannerImage}} alt="" />
+              <div class="fundriser-card-data">
+                
+                  <h5>{{fundriser.title}}</h5>
+                  <span>
+                    <b>Applicant: </b>
+                    <p>{{fundriser.applicantName}}</p>
+                  </span>
+                  <span>
+                    <b>Fundriser cause: </b>
+                    <p>{{fundriser.fundriserPurpose}}</p>
+                  </span>
+                  <span>
+                    <b>Fund collected: </b>
+                    <p>&#8377; {{fundriser.collectedAmount}} / &#8377; {{fundriser.targetAmount}} </p>
+                  </span>
+                  <span>
+                    <button class='OrangeBtn' [routerLink]="['/fundriser/', fundriser._id]" >View</button>
+                    <button class='BlueBtn' [routerLink]="['/update-fundriser/', fundriser._id]" >Update</button>
+                  </span>
+              </div>
+          </div>
+
+    </div>
+
+  </div>

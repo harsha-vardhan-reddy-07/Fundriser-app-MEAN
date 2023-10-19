@@ -1,0 +1,32 @@
+<div class="all-donations-page">
+    <h3>All Donations</h3>
+
+    <div class="all-donations">
+
+        <div class="all-donation-card" *ngFor="let donation of donations" >
+            <span>
+                <b>Fundriser Type</b>
+                <p>{{donation.fundriserPurpose}}</p>
+            </span>
+            <span>
+                <b>Donor name</b>
+                <p>{{donation.donarName}}</p>
+            </span>
+            <span> 
+                <b>Donor mail</b>
+                <p>{{donation.donarEmail}}</p>
+            </span>
+            <span>
+                <b>Amount</b>
+                <p>&#8377; {{donation.donationAmount}}</p>
+            </span>
+            <span>
+                <b>Remarks</b>
+                <p>{{donation.remark}}</p>
+            </span>
+            <button class='btn btn-outline-primary' [routerLink]="['/fundriser/', donation.fundriserId]" >View fundriser</button>
+        </div>
+
+
+    </div>
+</div>

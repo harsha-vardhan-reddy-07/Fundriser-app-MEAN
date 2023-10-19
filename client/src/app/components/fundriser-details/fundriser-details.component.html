@@ -1,0 +1,95 @@
+<div class="fundriser-page">
+
+
+    
+    <div class="fundriser-data-container" *ngIf="fundriser">
+        
+        <img class='fundriser-banner-image' src={{fundriser.bannerImage}} alt="" />
+        
+        <div class="fundriser-title-desc">
+            <h4>{{fundriser.title}}</h4>
+            <p>{{fundriser.description}}</p>
+        </div>
+
+        <div class="fundriser-applicant-data">
+            <span>
+                <b>Fundriser Need: </b>
+                <p>{{fundriser.fundriserPurpose}}</p>
+            </span>
+            <span>
+                <b>Applicant Name: </b>
+                <p>{{fundriser.applicantName}}</p>
+            </span>
+            <span>
+                <b>Applicant Email: </b>
+                <p>{{fundriser.applicantEmail}}</p>
+            </span>
+            <span>
+                <b>Applicant Mobile: </b>
+                <p>{{fundriser.applicantMobile}}</p>
+            </span>
+            <span>
+                <b>Deadline: </b>
+                <p>{{fundriser.deadline}}</p>
+            </span>
+            <div class="fundriser-amount-status">
+                <b>Amount Collected: </b>
+                <span>
+                    <p>&#8377; {{fundriser.collectedAmount}}</p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" [style.width.%]="calculateProgressWidth(fundriser.collectedAmount, fundriser.targetAmount)" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{ calculateProgressWidth(fundriser.collectedAmount, fundriser.targetAmount) }}%</div>
+                    </div>
+                    <p>&#8377; {{fundriser.targetAmount}}</p>
+                </span>
+            </div>
+            <button class='share-btn OrangeBtn' (click)="shareURL()" >Share now </button>
+        </div>
+
+        <div class="fundriser-images">
+            <img src={{fundriser.extraImg1}} alt="" />
+            <img src={{fundriser.extraImg2}} alt="" />
+            <img src={{fundriser.extraImg3}} alt="" />
+        </div>
+
+        <hr />
+    </div>
+    
+
+
+    <div class="fundriser-recent-transactions">
+        <h3>Donations</h3>
+        <div class="input-group mb-3 fundriser-donate-form">
+            <input type="number" class="form-control" placeholder="Enter amount" aria-label="Enter amount" aria-describedby="button-addon2" [(ngModel)]="donationAmount" />
+            <input type="text" class="form-control" placeholder="Remarks" aria-label="Remarks" aria-describedby="button-addon2" [(ngModel)]="remark" />
+            <button class="btn btn-outline-primary" type="button" id="button-addon2" (click)="handleDonation()" >Donate</button>
+        </div>
+
+        <div class="recent-donations-container">
+            <h4>Recent Donations</h4>
+            <div class="recent-donations">
+
+                        <div class="recent-donation" *ngFor="let donation of donations" >
+                            <span>
+                                <b>Donor name</b>
+                                <p>{{donation.donarName}}</p>
+                            </span>
+                            <span>
+                                <b>Donor mail</b>
+                                <p>{{donation.donarEmail}}</p>
+                            </span>
+                            <span>
+                                <b>Amount</b>
+                                <p>&#8377; {{donation.donationAmount}}</p>
+                            </span>
+                            <span>
+                                <b>Remarks</b>
+                                <p>{{donation.remark}}</p>
+                            </span>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,118 @@
+<div class="new-fundriser-page">
+
+        
+
+    <!-- {/* step 1 */} -->
+
+
+      <div class="new-fundriser-card" *ngIf="newFundCard === 1" >
+        <h3>Update Fundriser Details</h3>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      
+        <div class="new-fundriser-form">
+
+            <div class="form-floating mb-3">
+              <select class="form-select form-select-md mb-3" id='new-fund-type-select' aria-label=".form-select-lg example" [(ngModel)]="fundriserPurpose" name="fundriserPurpose" >
+                <option selected>Choose the need for the fundriser</option>
+                <option value="Personal Education">Personal Education</option>
+                <option value="Personal Health">Personal Health</option>
+                <option value="Orphanages/Oldagehomes">Orphanages/Oldagehomes</option>
+                <option value="Disaster Relief">Disaster Relief</option>
+              </select>
+              <label for="new-fund-type-select">Need for Fundriser</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="new-fund-applicant-name" placeholder="Name" [(ngModel)]="applicantName" name="applicantName" />
+              <label for="new-fund-applicant-name">Applicant Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="new-fund-applicant-email" placeholder="Email" [(ngModel)]="applicantEmail" name="applicantEmail" />
+              <label for="new-fund-applicant-email">Applicant Email</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="new-fund-applicant-mobile" placeholder="mobile" [(ngModel)]="applicantMobile" name="applicantMobile" />
+              <label for="new-fund-applicant-mobile">Applicant Mobile number</label>
+            </div>
+
+            <span class='new-fundriser-btns' >
+              <button class='new-fundriser-blueBtn' routerLink="/" > Home</button>
+              <button class='new-fundriser-orangeBtn' (click)="newFundCard = 2" >Next</button>
+            </span>
+
+        </div>
+
+      </div>
+    
+    
+
+
+    <!-- {/* step 2 */} -->
+
+      <div class="new-fundriser-card" *ngIf="newFundCard === 2" >
+        <h3>Update Fundriser Details</h3>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+        <div class="new-fundriser-form">
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="new-fund-title" placeholder="Name" [(ngModel)]="title" name="title" />
+              <label for="new-fund-title">Fundriser title</label>
+            </div>
+
+            <span class='new-fund-span-2'>
+
+                <div class="form-floating mb-3">
+                  <input type="number" class="form-control" id="new-fund-applicant-name" placeholder="Name" [(ngModel)]="targetAmount" name="targetAmount" />
+                  <label for="new-fund-applicant-name">Required amount</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="date" class="form-control" id="new-fund-applicant-name" placeholder="Name" [(ngModel)]="deadline" name="deadline" />
+                  <label for="new-fund-applicant-name">Deadline</label>
+                </div>
+
+            </span>
+
+            <div class="form-floating mb-3">
+              <textarea class="form-control" id="new-fund-description" rows="5" placeholder='description' [(ngModel)]="description" name="description" ></textarea>
+              <label for="new-fund-description">Description</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="new-fund-applicant-mobile" placeholder="mobile" [(ngModel)]="bannerImage" name="bannerImage" />
+                  <label for="new-fund-applicant-mobile">Add Banner Image url</label>
+            </div>
+
+            <span class='new-fund-span-3'>
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="new-fund-applicant-mobile" placeholder="mobile" [(ngModel)]="extraImg1" name="extraImg1" />
+                  <label for="new-fund-applicant-mobile">Add Image url</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="new-fund-applicant-mobile" placeholder="mobile" [(ngModel)]="extraImg2" name="extraImg2"/>
+                  <label for="new-fund-applicant-mobile">Add Image url</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="new-fund-applicant-mobile" placeholder="mobile" [(ngModel)]="extraImg3" name="extraImg3"/>
+                  <label for="new-fund-applicant-mobile">Add Image url</label>
+                </div>
+            </span>
+
+            <span class='new-fundriser-btns' >
+              <button class='new-fundriser-blueBtn' (click)="newFundCard = 1" >  Back</button>
+              <button class='new-fundriser-orangeBtn' (click)="handleUpdateFundriser()" >Finish  </button>
+            </span>
+
+        </div>
+
+      </div>
